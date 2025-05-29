@@ -23,6 +23,21 @@ cities = sorted([
     'Dharamsala', 'Mohali'
 ])
 
+# Mapping team names to logo file paths
+team_logos = {
+    'Chennai Super Kings': 'logos/csk.png',
+    'Rajasthan Royals': 'logos/rr.png',
+    'Punjab Kings': 'logos/pk.png',
+    'Sunrisers Hyderabad': 'logos/sh.png',
+    'Delhi Capitals': 'logos/dc.png',
+    'Gujarat Titans': 'logos/gt.png',
+    'Kolkata Knight Riders': 'logos/kkr.png',
+    'Lucknow Super Giants': 'logos/lsg.png',
+    'Mumbai Indians': 'logos/mi.png',
+    'Royal Challengers Bangalore': 'logos/rcb.png'
+}
+ipl_logo = 'logos/ipl.png'
+
 # Sidebar: Project Description
 st.sidebar.title("🏏 IPL Win Predictor")
 st.sidebar.markdown("""
@@ -45,8 +60,12 @@ Use this tool to get real-time insights into the game using an ML model trained 
 - Winning probability for both teams in percentage
 """)
 
-# Main title
-st.title("🏆 IPL Win Predictor")
+# Main Title with IPL logo
+colA, colB = st.columns([1, 8])
+with colA:
+    st.image(ipl_logo, width=60)
+with colB:
+    st.title("🏆 IPL Win Predictor")
 
 # Select teams
 col1, col2 = st.columns(2)
@@ -106,7 +125,15 @@ if st.button('Predict Probability'):
         loss_prob = result[0]
         win_prob = result[1]
 
-        # Display results
+        # Display results with logos
         st.subheader("📊 Winning Probability")
-        st.success(f"{batting_team}: {round(win_prob * 100)}%")
-        st.error(f"{bowling_team}: {round(loss_prob * 100)}%")
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.image(team_logos[batting_team], width=80)
+            st.success(f"{batting_team}: {round(win_prob * 100)}%")
+
+        with col2:
+            st.image(team_logos[bowling_team], width=80)
+            st.error(f"{bowling_team}: {round(loss_prob * 100)}%")
