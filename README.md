@@ -4,8 +4,7 @@ This is a web application built with Streamlit that predicts the winner of an IP
 
 ## 🌐 Live App
 
-👉 [Click here to use the IPL Match Predictor](https://yourusername-yourappname.streamlit.app)  
-*(Replace this link with your actual Streamlit app URL)*
+👉 [Click here to use the IPL Match Predictor](https://iplmatchwinpredictor-liqlxdzgsv6jvduvhcmd2v.streamlit.app)  
 
 ## 🚀 Features
 
