@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 # Load the trained model pipeline
-pipe = pickle.load(open(r'pipe.pkl', 'rb'))
+pipe = pickle.load(open('pipe.pkl', 'rb'))
 
 # Teams and cities
 teams = [
